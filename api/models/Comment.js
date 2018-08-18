@@ -14,6 +14,7 @@ module.exports = {
 
     content: {
       type: 'string',
+      required: true,
       description: 'Something a user wants to say about a post',
       example: 'I love it!',
     },

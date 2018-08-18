@@ -1,4 +1,3 @@
-//var supertest = require('supertest');
 const assert = require('assert');
 
 describe('UserController', () => {

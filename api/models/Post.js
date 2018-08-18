@@ -14,16 +14,19 @@ module.exports = {
 
     title: {
       type: 'string',
+      required: true,
       description: 'The title of the tweet',
     },
 
     body: {
       type: 'string',
+      required: true,
       description: 'The body of the tweet',
     },
 
     url: {
       type: 'string',
+      required: true,
       description: 'Url for the tweet',
     },
 
