@@ -31,13 +31,6 @@ module.exports = {
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
 
-    //Get the tweet content from twitter
-    beforeCreate: function (valuesToSet, proceed) {
-      valuesToSet.url;
-      valuesToSet.content = "I got this from the url"
-      return proceed();
-    },
-
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
@@ -51,7 +44,7 @@ module.exports = {
     votes: {
       collection: 'vote',
       via: 'post',
-    }
+    },
 
     // Add a reference to Comment
     comments: {

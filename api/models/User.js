@@ -179,7 +179,7 @@ email status until they click the link in the confirmation email.`
     votes: {
       collection: 'vote',
       via: 'creator'
-    }
+    },
   },
 
 

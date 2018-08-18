@@ -30,7 +30,7 @@ module.exports = {
     // Add a reference to User
     creator: {
       model: 'user',
-    }
+    },
 
     // Add a reference to Post
     post: {

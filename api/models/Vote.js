@@ -14,9 +14,8 @@ module.exports = {
 
     rating: {
       type: 'number',
-      allowNull: true,
       isIn: [0, 1, -1],
-      required: true,
+      defaultsTo: 0,
       description: 'Positive or negative rating',
     },
 
