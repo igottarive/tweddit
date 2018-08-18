@@ -162,8 +162,24 @@ email status until they click the link in the confirmation email.`
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    // n/a
 
+    // Add a reference to Post
+    posts: {
+      collection: 'post',
+      via: 'creator'
+    },
+
+    // Add a reference to Comment
+    comments: {
+      collection: 'comment',
+      via: 'creator'
+    },
+
+    // Add a reference to Vote
+    votes: {
+      collection: 'vote',
+      via: 'creator'
+    }
   },
 
 
