@@ -28,8 +28,10 @@ module.exports = {
     if (this.req.me) {
       throw {redirect:'/welcome'};
     }
+    //Get last 5 posts
+    let posts = await Post.find({limit:5});
 
-    return exits.success();
+    return exits.success({posts: posts});
 
   }
 

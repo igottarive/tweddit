@@ -70,6 +70,12 @@ module.exports.bootstrap = async function(done) {
     { title: 'Post 1', body: 'A Cool POST', url: 'http://yahoo.com', creator: createdUsers[0].id},
     { title: 'Post 2', body: 'A Cool POST2', url: 'http://yahoo.com', creator: createdUsers[1].id},
     { title: 'Post 3', body: 'A Cool POST3', url: 'http://yahoo.com', creator: createdUsers[2].id},
+    { title: 'Post 4', body: 'A Cool POST4', url: 'http://yahoo.com', creator: createdUsers[0].id},
+    { title: 'Post 5', body: 'A Cool POST5', url: 'http://yahoo.com', creator: createdUsers[0].id},
+    { title: 'Post 6', body: 'A Cool POST6', url: 'http://yahoo.com', creator: createdUsers[0].id},
+    { title: 'Post 7', body: 'A Cool POST7', url: 'http://yahoo.com', creator: createdUsers[0].id},
+    { title: 'Post 8', body: 'A Cool POST8', url: 'http://yahoo.com', creator: createdUsers[0].id},
+    { title: 'Post 9', body: 'A Cool POST9', url: 'http://yahoo.com', creator: createdUsers[0].id},
   ]).fetch();
 
   await Comment.createEach([
