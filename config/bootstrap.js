@@ -99,7 +99,18 @@ module.exports.bootstrap = async function(done) {
     { rating: 0, post: createdPosts[1].id, creator: createdUsers[0].id},
     { rating: 1, post: createdPosts[2].id, creator: createdUsers[0].id},
     { rating: -1, post: createdPosts[2].id, creator: createdUsers[2].id},
-    { rating: 0, post: createdPosts[2].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
+    { rating: -1, post: createdPosts[4].id, creator: createdUsers[2].id},
+    { rating: -1, post: createdPosts[4].id, creator: createdUsers[2].id},
+    { rating: -1, post: createdPosts[4].id, creator: createdUsers[2].id},
+    { rating: -1, post: createdPosts[4].id, creator: createdUsers[2].id},
+    { rating: -1, post: createdPosts[4].id, creator: createdUsers[2].id},
   ]).fetch();
 
   // Save new bootstrap version
