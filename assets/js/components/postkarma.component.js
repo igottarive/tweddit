@@ -54,7 +54,6 @@ parasails.registerComponent('postkarma', {
     //Set appropriate badge color
     this.badge = this.karma < 0 ? 'badge-danger' : this.badge;
     this.badge = this.karma > 0 ? 'badge-success' : this.badge;
-    console.log(this);
   },
   beforeDestroy: function() {
     //…
