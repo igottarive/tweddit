@@ -30,8 +30,8 @@ parasails.registerComponent('friend', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <ul class="list-group">
-    <li class="list-group-item active">  {{ type | capitalize}}</li>
+  <ul class="list-group" v-cloak v-if="">
+    <li class="list-group-item active">  {{ type | capitalize }}</li>
     <li class="list-group-item" v-for="user in users" v-bind:key="user.id">{{user.fullName}}</li>
   </ul>
   `,
@@ -43,6 +43,12 @@ parasails.registerComponent('friend', {
     //…
   },
   mounted: async function(){
+    if(!this.users.length) {
+      $(this.$el).css({
+        'display': 'none',
+      });
+    }
+
     $(this.$el).css({
       'width': '220px',
     });
