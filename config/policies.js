@@ -19,4 +19,5 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
 
   'post/create': true,
+  'vote/create': true,
 };

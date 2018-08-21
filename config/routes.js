@@ -52,6 +52,7 @@ module.exports.routes = {
 
   //Blueprint routes
   'POST  /api/v1/post':                             { action: 'post/create' },
+  'POST  /api/v1/vote':                             { action: 'vote/create' },
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
