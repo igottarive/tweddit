@@ -1,7 +1,7 @@
 /**
- * <ajax-button>
+ * <post>
  * -----------------------------------------------------------------------------
- * A button with a built-in loading spinner.
+ * A display for a post from a user.
  *
  * @type {Component}
  *
@@ -14,7 +14,8 @@ parasails.registerComponent('post', {
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
   //  ╩  ╩╚═╚═╝╩  ╚═╝
   props: [
-    'post'
+    'post',
+    'user',
   ],
 
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -32,9 +33,12 @@ parasails.registerComponent('post', {
   template: `
   <div class="card">
     <div class="card-body">
-      <a :href="post.url" target="_blank" class="card-button btn btn-outline-info"><i class="fa fa-twitter"></i></a>
       <h5 class="card-title">{{ post.title }}</h5>
       <p class="card-text" v-html="post.body"></p>
+      <a :href="post.url" target="_blank" class="twitter btn btn-outline-info"><i class="fa fa-twitter"></i></a>
+      <vote class="vote" v-bind:post="post" v-bind:user="user"></vote>
+      <small class="fromNow text-muted">{{ post.fromNow }}</small>
+      <postkarma class="postkarma" v-bind:votes="post.votes"></postkarma>
     </div>
   </div>
   `,
@@ -47,13 +51,29 @@ parasails.registerComponent('post', {
   },
   mounted: async function(){
     $(this.$el).css({
+      'position': 'relative',
       'margin': '10px',
     });
-    $('.card-button').css({
-      'display': 'block',
-      'float': 'right',
+    $('.twitter').css({
+      'position': 'absolute',
+      'bottom': '5px',
+      'right': '5px',
     });
-    console.log(this);
+    $('.vote').css({
+      'position': 'absolute',
+      'top': '5px',
+      'right': '5px',
+    });
+    $('.postkarma').css({
+      'position': 'absolute',
+      'top': '5px',
+      'left': '5px',
+    });
+    $('.fromNow').css({
+      'position': 'absolute',
+      'bottom': '3px',
+      'right': '50px',
+    });
   },
   beforeDestroy: function() {
     //…
