@@ -15,7 +15,7 @@
  * @event opened  [emitted when the opening process is completely done]
  * -----------------------------------------------------------------------------
  */
-
+var parasails = require('parasails');
 parasails.registerComponent('modal', {
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗

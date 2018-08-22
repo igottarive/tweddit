@@ -9,7 +9,7 @@
  * @event click   [emitted when clicked]
  * -----------------------------------------------------------------------------
  */
-
+var parasails = require('parasails');
 parasails.registerComponent('postkarma', {
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
