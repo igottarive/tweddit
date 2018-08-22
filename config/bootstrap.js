@@ -94,7 +94,6 @@ module.exports.bootstrap = async function(done) {
   ]).fetch();
 
   await Vote.createEach([
-    { rating: 0, post: createdPosts[0].id, creator: createdUsers[0].id, id: 1},
     { rating: 0, post: createdPosts[0].id, creator: createdUsers[2].id},
     { rating: 1, post: createdPosts[0].id, creator: createdUsers[0].id},
     { rating: -1, post: createdPosts[0].id, creator: createdUsers[1].id},
