@@ -50,14 +50,15 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
 
-  //Blueprint routes
-  'POST  /api/v1/post':                             { action: 'post/create' },
-  'POST  /api/v1/vote':                             { action: 'vote/create' },
-
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
+  //Blueprint routes
+  'POST /api/v1/add-post':                            { action: 'post/add-post' },
+  'POST /api/v1/add-vote':                            { action: 'vote/add-vote' },
 
+  'GET /api/v1/list-comment':                         { action: 'comment/list-comment' },
+  'POST /api/v1/add-comment':                         { action: 'comment/add-comment' },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗

@@ -18,6 +18,8 @@ module.exports.policies = {
   'view-homepage-or-redirect': true,
   'deliver-contact-form-message': true,
 
-  'post/create': true,
-  'vote/create': true,
+  'vote/add-vote': true,
+  'post/add-post': true,
+  'comment/add-comment': true,
+  'comment/list-comment': true,
 };

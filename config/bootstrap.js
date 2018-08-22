@@ -60,13 +60,15 @@ module.exports.bootstrap = async function(done) {
 
   // By convention, this is a good place to set up fake data during development.
   var createdUsers = await User.createEach([
-    { emailAddress: 'justin@example.com', fullName: 'Justin Pruskowski', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
+    { emailAddress: 'justin@example.com', fullName: 'Justin Pruskowski', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123'), id: 1 },
+    { emailAddress: 'justin1@example.com', fullName: 'Justin1 Pruskowski', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
     { emailAddress: 'justin2@example.com', fullName: 'Justin2 Pruskowski', isSuperAdmin: false, password: await sails.helpers.passwords.hashPassword('abc123') },
     { emailAddress: 'justin3@example.com', fullName: 'Justin3 Pruskowski', isSuperAdmin: false, password: await sails.helpers.passwords.hashPassword('abc123') },
   ]).fetch();
 
 
   var createdPosts = await Post.createEach([
+    { title: 'Post 0', body: 'A Cool POST', url: 'http://yahoo.com', creator: createdUsers[0].id, id: 1},
     { title: 'Post 1', body: 'A Cool POST', url: 'http://yahoo.com', creator: createdUsers[0].id},
     { title: 'Post 2', body: 'A Cool POST2', url: 'http://yahoo.com', creator: createdUsers[1].id},
     { title: 'Post 3', body: 'A Cool POST3', url: 'http://yahoo.com', creator: createdUsers[2].id},
@@ -79,6 +81,7 @@ module.exports.bootstrap = async function(done) {
   ]).fetch();
 
   await Comment.createEach([
+    { content: 'Comment 0', post: createdPosts[0].id, creator: createdUsers[0].id, id: 1},
     { content: 'Comment 1', post: createdPosts[0].id, creator: createdUsers[0].id},
     { content: 'Comment 2', post: createdPosts[0].id, creator: createdUsers[1].id},
     { content: 'Comment 3', post: createdPosts[0].id, creator: createdUsers[2].id},
@@ -91,6 +94,7 @@ module.exports.bootstrap = async function(done) {
   ]).fetch();
 
   await Vote.createEach([
+    { rating: 0, post: createdPosts[0].id, creator: createdUsers[0].id, id: 1},
     { rating: 0, post: createdPosts[0].id, creator: createdUsers[2].id},
     { rating: 1, post: createdPosts[0].id, creator: createdUsers[0].id},
     { rating: -1, post: createdPosts[0].id, creator: createdUsers[1].id},
