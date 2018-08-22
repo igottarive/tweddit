@@ -3,7 +3,7 @@
  *
  * A User votes (positive or negative) on a post.
  */
-
+var moment = require('moment');
 module.exports = {
 
   attributes: {
@@ -38,6 +38,9 @@ module.exports = {
       model: 'post',
     },
   },
-
+  customToJSON: function() {
+    this.fromNow = moment(this.createdAt).fromNow();
+    return this;
+  }
 
 };

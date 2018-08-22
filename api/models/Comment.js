@@ -3,7 +3,7 @@
  *
  * A User comments on a Post.
  */
-
+var moment = require('moment');
 module.exports = {
 
   attributes: {
@@ -39,6 +39,9 @@ module.exports = {
     },
 
   },
-
+  customToJSON: function() {
+    this.fromNow = moment(this.createdAt).fromNow();
+    return this;
+  }
 
 };

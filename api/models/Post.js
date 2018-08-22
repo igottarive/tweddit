@@ -3,7 +3,7 @@
  *
  * A piece of content that a user creates based on a tweet url
  */
-
+var moment = require('moment');
 module.exports = {
 
   attributes: {
@@ -55,6 +55,9 @@ module.exports = {
       via: 'post'
     },
   },
-
+  customToJSON: function() {
+    this.fromNow = moment(this.createdAt).fromNow();
+    return this;
+  }
 
 };
