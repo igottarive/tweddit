@@ -1,6 +1,4 @@
 var sails = require('sails');
-var vue = require('vue');
-var parasails = require('parasails');
 
 before((done) => {
   sails.lift({
@@ -9,8 +7,6 @@ before((done) => {
 
   }, (err) => {
     if (err) { return done(err); }
-    vue = vue || {};
-    parasails = parasails || {};
     return done();
   });
 });
