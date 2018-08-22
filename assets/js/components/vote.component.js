@@ -8,7 +8,7 @@
  * @event click   [emitted when clicked]
  * -----------------------------------------------------------------------------
  */
-var parasails = require('parasails');
+if(typeof window === 'undefined') { var parasails = require('parasails'); }
 parasails.registerComponent('vote', {
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
@@ -47,7 +47,7 @@ parasails.registerComponent('vote', {
   <div class="vote">
     <ajax-form action="addVote" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm">
       <ajax-button type="submit" class="btn btn-outline-info" v-on:click="formData.rating=1"><i class="fa fa-thumbs-up"></i></ajax-button>
-      <ajax-button type="submit" v-on:click="formData.rating=-1" class="btn btn-outline-info"><i class="fa fa-thumbs-down"></i></ajax-button>
+      <ajax-button type="submit" class="btn btn-outline-info" v-on:click="formData.rating=-1"><i class="fa fa-thumbs-down"></i></ajax-button>
     </ajax-form>
   </div>
   `,

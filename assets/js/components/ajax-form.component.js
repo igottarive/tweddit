@@ -16,7 +16,7 @@
  * @event rejected                   [emitted after the server responds with a non-2xx status code]
  * -----------------------------------------------------------------------------
  */
-var parasails = require('parasails');
+if(typeof window === 'undefined') { var parasails = require('parasails'); }
 parasails.registerComponent('ajaxForm', {
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
