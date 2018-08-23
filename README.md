@@ -1,12 +1,11 @@
 # tweddit
 
 # @TODO:
-- Make votes highlight which one the user has done (up or down). Allow a cancel (edit)
-- Get twitter API working - Need Twitter Developer account
-- Add Submit tweet button to welcome page
+- URL regex to make sure it's a proper tweet url
 - Friends/Frenemies exclude self
+- Make votes highlight which one the user has done (up or down). Allow a cancel (edit) - Currently anyone can add ∞
 - UI improvements
-- Better tests
+- Better UI/UX tests
 - Get it working on docker
 - Put docker on aws
 
