@@ -74,7 +74,7 @@ parasails.registerComponent('list-post', {
           theme: 'light',
         });
       } else {
-        var text = document.createTextNode("Invalid Tweet URL");
+        var text = document.createTextNode('Invalid Tweet URL');
         tweet.appendChild(text);
       }
     });
