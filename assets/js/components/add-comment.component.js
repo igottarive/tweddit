@@ -43,9 +43,9 @@ parasails.registerComponent('add-comment', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <ajax-form class="col-md-6 col-md-offset-2 col-sm-12" action="addComment" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm">
+  <ajax-form action="addComment" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm">
     <div class="form-group">
-      <label for="comment">Comment</label>
+      <label for="comment">Comments</label>
       <textarea class="form-control" id="comment" name="comment" v-model.trim="comment" placeholder="write a comment..." rows="3"></textarea>
     </div>
     <ajax-button type="submit" class="btn btn-outline-info pull-right">Submit</ajax-button>
