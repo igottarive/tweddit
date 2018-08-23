@@ -1,52 +1,9 @@
 <div id="homepage" :class="[heroHeightSet ? '' : 'uninitialized']" v-cloak>
   <div class="hero d-flex flex-column justify-content-center" full-page-hero>
     <div class="container text-center">
-      <div class="buttons">
-        <button class="btn btn-outline-info ml-2" @click="clickOpenDashboardModalButton()">Tweddit</button>
-      </div>
-      <post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></post>
+      <add-post></add-post>
+      <list-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></list-post>
     </div>
   </div>
-
-  <modal class="example-modal" v-if="dashboardModalVisible" @close="closeDashboardModal()" v-cloak>
-    <div class="modal-header">
-      <h2 class="modal-title">Tweddit</h2>
-      <p>Create a new Tweddit</p>
-      <hr/>
-      <button type="button" class="modal-close-button" data-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <ajax-form action="addPost" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input class="form-control" id="title" name="title" type="text"  :class="[formErrors.title ? 'is-invalid' : '']" v-model.trim="formData.title" placeholder="Another great Tweddit" autocomplete="title" focus-first>
-              <div class="invalid-feedback" v-if="formErrors.title">Please enter a great Title.</div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="url">Twitter Link</label>
-              <input class="form-control" id="url" name="url" type="url"  :class="[formErrors.url ? 'is-invalid' : '']" v-model.trim="formData.url" placeholder="https://twitter.com/PizzaPizzaLtd/status/1029794684485259264" autocomplete="twitter">
-              <div class="invalid-feedback" v-if="formErrors.url">The url for the tweet you want to add.</div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <p class="text-danger" v-if="cloudError === 'emailAlreadyInUse'">There is already an account using that email address.</p>
-            <p class="text-danger" v-else-if="cloudError">An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</p>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group text-right">
-              <button class="btn btn-outline-info" data-dismiss="modal">Cancel</button>
-              <ajax-button type="submit" :syncing="syncing" class="btn btn-info">Save changes</ajax-button>
-            </div>
-          </div>
-        </div>
-      </ajax-form>
-    </div>
-  </modal>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
