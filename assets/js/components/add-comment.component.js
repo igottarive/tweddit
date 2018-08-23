@@ -76,7 +76,9 @@ parasails.registerComponent('add-comment', {
     handleParsingForm: function() {
 
       this.formData.post = this.post.id;
-      this.formData.user = this.user.id;
+      if(this.user && this.user.id) {
+        this.formData.user = this.user.id;
+      }
       this.formData.content = this.comment;
 
       return this.formData;
