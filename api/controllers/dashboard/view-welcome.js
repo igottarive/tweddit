@@ -19,7 +19,8 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     //Get last 5 posts
-    let posts = await Post.find({where: {creator: this.req.me.id}, limit: 5}).populateAll();
+    let posts = await Post.find({where: {creator: this.req.me.id}, limit: 5}).sort('createdAt DESC').populateAll();
+    _.each(posts, (post) => { sails.helpers.postData(post); });
 
     return exits.success({posts: posts});
   }
