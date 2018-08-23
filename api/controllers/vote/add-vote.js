@@ -38,7 +38,7 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     var newVote = await Vote.create({
-      user: inputs.user,
+      creator: inputs.user,
       post: inputs.post,
       rating: inputs.rating,
     }).fetch();
