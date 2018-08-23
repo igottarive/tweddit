@@ -18,11 +18,6 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    body: {
-      description: 'The body of the post (Should be removed and gotten from twitter)',
-      type: 'string',
-      required: true,
-    },
     url: {
       description: 'A url to a tweet.',
       type: 'string',
