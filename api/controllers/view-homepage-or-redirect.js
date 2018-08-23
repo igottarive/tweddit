@@ -1,5 +1,3 @@
-var url = require('url');
-var moment = require('moment');
 module.exports = {
 
 
@@ -32,15 +30,7 @@ module.exports = {
     }
     //Get last 5 posts
     let posts = await Post.find({limit:5}).populateAll();
-    _.each(posts, (post)=> {
-      //Use from Now text from moment
-      post.fromNow = moment(post.createdAt).fromNow();
-
-      //Get the twitter statusId from the url
-      var postUrl = new url.parse(post.url);
-      var parts = postUrl.pathname.split('/').pop();
-      post.tweetId = parts;
-    });
+    _.each(posts, (post) => { sails.helpers.postData(post); });
 
     return exits.success({posts: posts});
 
