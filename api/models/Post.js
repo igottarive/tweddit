@@ -18,16 +18,11 @@ module.exports = {
       description: 'The title of the tweet',
     },
 
-    body: {
-      type: 'string',
-      required: true,
-      description: 'The body of the tweet',
-    },
-
     url: {
       type: 'string',
       required: true,
       description: 'Url for the tweet',
+      example: 'https://twitter.com/thenoahkinsey/status/719189486039474177',
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -55,9 +50,4 @@ module.exports = {
       via: 'post'
     },
   },
-  customToJSON: function() {
-    this.fromNow = moment(this.createdAt).fromNow();
-    return this;
-  }
-
 };

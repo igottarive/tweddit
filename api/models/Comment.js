@@ -38,10 +38,6 @@ module.exports = {
       model: 'post',
     },
 
-  },
-  customToJSON: function() {
-    this.fromNow = moment(this.createdAt).fromNow();
-    return this;
   }
 
 };
