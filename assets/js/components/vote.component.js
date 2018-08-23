@@ -73,8 +73,7 @@ parasails.registerComponent('vote', {
   methods: {
 
     handleParsingForm: function() {
-      //Validate Twitter data here-ish to set the body
-      this.formData.user = 1;
+      this.formData.user = this.user.id;
       this.formData.post = this.post.id;
 
       return this.formData;
