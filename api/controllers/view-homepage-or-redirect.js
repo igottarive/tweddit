@@ -29,7 +29,7 @@ module.exports = {
       throw {redirect:'/welcome'};
     }
     //Get last 5 posts
-    let posts = await Post.find({limit:5}).populateAll();
+    let posts = await Post.find({limit:5}).sort('createdAt DESC').populateAll();
     _.each(posts, (post) => { sails.helpers.postData(post); });
 
     return exits.success({posts: posts});
