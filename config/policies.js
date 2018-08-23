@@ -22,4 +22,5 @@ module.exports.policies = {
   'post/add-post': true,
   'comment/add-comment': true,
   'comment/list-comment': true,
+  'friends/get-friends': true,
 };
