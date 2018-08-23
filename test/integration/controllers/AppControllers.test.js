@@ -5,7 +5,7 @@ describe('AppControllers', () => {
     it('should return 200', (done) => {
       supertest(sails.hooks.http.app)
       .post('/api/v1/add-comment')
-      .send({ content: 'some content', user: 1, post: 1 })
+      .send({ content: 'some content', user: 10000, post: 10000 })
       .expect(200, done);
     });
   });
@@ -13,7 +13,7 @@ describe('AppControllers', () => {
   describe('list-comment', () => {
     it('should return 200', (done) => {
       supertest(sails.hooks.http.app)
-      .get('/api/v1/list-comment?post=1')
+      .get('/api/v1/list-comment?post=10000')
       .expect(200, done);
     });
   });
@@ -21,7 +21,7 @@ describe('AppControllers', () => {
   describe('get-friends', () => {
     it('should return 200', (done) => {
       supertest(sails.hooks.http.app)
-      .get('/api/v1/get-friends?user=1')
+      .get('/api/v1/get-friends?user=10000')
       .expect(200, done);
     });
   });
@@ -31,7 +31,7 @@ describe('AppControllers', () => {
     it('should return 200', (done) => {
       supertest(sails.hooks.http.app)
       .post('/api/v1/add-post')
-      .send({ title: 'post title', body: 'some cool stuff', url: 'sdfsdf', user: 1 })
+      .send({ title: 'post title', body: 'some cool stuff', url: 'sdfsdf', user: 100000 })
       .expect(200, done);
     });
   });

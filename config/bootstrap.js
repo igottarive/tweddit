@@ -58,9 +58,10 @@ module.exports.bootstrap = async function(done) {
     await sails.models[identity].destroy({});
   }//∞
 
+  let uid = 10000;
   // By convention, this is a good place to set up fake data during development.
   var createdUsers = await User.createEach([
-    { emailAddress: 'justin@example.com', fullName: 'Justin Pruskowski', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123'), id: 1 },
+    { emailAddress: 'justin@example.com', fullName: 'Justin Pruskowski', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123'), id: uid },
     { emailAddress: 'justin1@example.com', fullName: 'Justin1 Pruskowski', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
     { emailAddress: 'justin2@example.com', fullName: 'Justin2 Pruskowski', isSuperAdmin: false, password: await sails.helpers.passwords.hashPassword('abc123') },
     { emailAddress: 'justin3@example.com', fullName: 'Justin3 Pruskowski', isSuperAdmin: false, password: await sails.helpers.passwords.hashPassword('abc123') },
@@ -68,20 +69,20 @@ module.exports.bootstrap = async function(done) {
 
 
   var createdPosts = await Post.createEach([
-    { title: 'Post 0', url: 'https://twitter.com/Eden_Eats/status/725826134911283200', creator: createdUsers[0].id, id: 1},
-    { title: 'Post 1', url: 'https://twitter.com/IceHuck/status/721701287981658114', creator: createdUsers[0].id},
+    { title: 'Post 0', url: 'https://twitter.com/Eden_Eats/status/725826134911283200', creator: createdUsers[0].id, id: uid},
+    { title: 'Post 1', url: 'https://twitter.com/IceHuck/status/721701287981658114', creator: uid},
     { title: 'Post 2', url: 'https://twitter.com/KentWGraham/status/513493735230148608', creator: createdUsers[1].id},
     { title: 'Post 3', url: 'https://twitter.com/leeovalentin/status/726079099870023681', creator: createdUsers[2].id},
-    { title: 'Post 4', url: 'https://twitter.com/juicymorsel/status/715334891790069762', creator: createdUsers[0].id},
+    { title: 'Post 4', url: 'https://twitter.com/juicymorsel/status/715334891790069762', creator: uid},
     { title: 'Post 5', url: 'https://twitter.com/WoodyLuvsCoffee/status/711330719109218304', creator: createdUsers[0].id},
-    { title: 'Post 6', url: 'https://twitter.com/HMittelmark/status/723194161168412673', creator: createdUsers[0].id},
-    { title: 'Post 7', url: 'https://twitter.com/OneFunnyMummy/status/651522936453509120', creator: createdUsers[0].id},
-    { title: 'Post 8', url: 'https://twitter.com/KentWGraham/status/722722662162817024', creator: createdUsers[0].id},
-    { title: 'Post 9', url: 'https://twitter.com/Tmoney68/status/326428164748353536', creator: createdUsers[0].id},
+    { title: 'Post 6', url: 'https://twitter.com/HMittelmark/status/723194161168412673', creator: uid},
+    { title: 'Post 7', url: 'https://twitter.com/OneFunnyMummy/status/651522936453509120', creator: uid},
+    { title: 'Post 8', url: 'https://twitter.com/KentWGraham/status/722722662162817024', creator: uid},
+    { title: 'Post 9', url: 'https://twitter.com/Tmoney68/status/326428164748353536', creator: uid},
   ]).fetch();
 
   await Comment.createEach([
-    { content: 'Comment 0', post: createdPosts[0].id, creator: createdUsers[0].id, id: 1},
+    { content: 'Comment 0', post: createdPosts[0].id, creator: uid, id: 10000},
     { content: 'Comment 1', post: createdPosts[0].id, creator: createdUsers[0].id},
     { content: 'Comment 2', post: createdPosts[0].id, creator: createdUsers[1].id},
     { content: 'Comment 3', post: createdPosts[0].id, creator: createdUsers[2].id},
@@ -95,12 +96,12 @@ module.exports.bootstrap = async function(done) {
 
   await Vote.createEach([
     { rating: 0, post: createdPosts[0].id, creator: createdUsers[2].id},
-    { rating: 1, post: createdPosts[0].id, creator: createdUsers[0].id},
+    { rating: 1, post: createdPosts[0].id, creator: uid},
     { rating: -1, post: createdPosts[0].id, creator: createdUsers[1].id},
     { rating: 1, post: createdPosts[1].id, creator: createdUsers[1].id},
     { rating: -1, post: createdPosts[1].id, creator: createdUsers[2].id},
-    { rating: 0, post: createdPosts[1].id, creator: createdUsers[0].id},
-    { rating: 1, post: createdPosts[2].id, creator: createdUsers[0].id},
+    { rating: 0, post: createdPosts[1].id, creator: uid},
+    { rating: 1, post: createdPosts[2].id, creator: uid},
     { rating: -1, post: createdPosts[2].id, creator: createdUsers[2].id},
     { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
     { rating: 1, post: createdPosts[3].id, creator: createdUsers[2].id},
