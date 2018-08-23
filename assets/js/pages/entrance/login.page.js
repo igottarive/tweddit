@@ -7,7 +7,7 @@ parasails.registerPage('login', {
     syncing: false,
 
     // Form data
-    formData: { /* … */ },
+    formData: { emailAddress: 'justin2@example.com', password: 'abc123' },
 
     // For tracking client-side validation errors in our form.
     // > Has property set to `true` for each invalid property in `formData`.
