@@ -3,7 +3,6 @@
  *
  * A User comments on a Post.
  */
-var moment = require('moment');
 module.exports = {
 
   attributes: {

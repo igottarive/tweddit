@@ -3,7 +3,6 @@
  *
  * A User votes (positive or negative) on a post.
  */
-var moment = require('moment');
 module.exports = {
 
   attributes: {

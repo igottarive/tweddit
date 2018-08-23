@@ -3,7 +3,6 @@
  *
  * A piece of content that a user creates based on a tweet url
  */
-var moment = require('moment');
 module.exports = {
 
   attributes: {
