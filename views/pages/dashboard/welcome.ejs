@@ -3,9 +3,10 @@
     <div class="container text-center" v-cloak>
       <h1>Welcome {{ me.fullName }}!</h1>
       <hr/>
+      <add-post v-bind:user="me"></add-post>
       <p>Here's your tweddits.</p>
       <div class="pull-left w-75">
-        <post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-bind:user="me"></post>
+        <list-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-bind:user="me"></list-post>
       </div>
       <div class="pull-right w-25">
         <friend v-bind:user="me" type="friends"></friend>
