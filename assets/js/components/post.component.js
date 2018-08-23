@@ -58,16 +58,15 @@ parasails.registerComponent('post', {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function() {
-    //…
     this.tweetId = this.post.tweetId;
     this.id = 'comment' + this.post.id;
   },
   mounted: async function(){
     //Display tweets
     var tweets = this.$el.getElementsByClassName('tweet');
-    [].forEach.call(tweets, function (tweet) {
-      var id = tweet.getAttribute("tweetID");
-      twttr.widgets.createTweet(
+    [].forEach.call(tweets, (tweet) => {
+      var id = tweet.getAttribute('tweetID');
+      twttr.widgets.createTweet( // eslint-disable-line no-undef
         id, tweet,
         {
           conversation: 'none',
