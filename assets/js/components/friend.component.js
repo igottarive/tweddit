@@ -32,7 +32,7 @@ parasails.registerComponent('friend', {
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
   <ul class="list-group" v-cloak>
-    <li class="list-group-item list-group-item-secondary">  {{ type | capitalize }}</li>
+    <li class="list-group-item list-group-item-info">  {{ type | capitalize }}</li>
     <li class="list-group-item" v-for="user in users" v-bind:key="user.id">{{user.fullName}}</li>
   </ul>
   `,
