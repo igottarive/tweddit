@@ -1,5 +1,5 @@
 /**
- * <post>
+ * <list-post>
  * -----------------------------------------------------------------------------
  * A display for a post from a user.
  *
@@ -9,7 +9,7 @@
  * -----------------------------------------------------------------------------
  */
 if(typeof window === 'undefined') { var parasails = require('parasails'); }
-parasails.registerComponent('post', {
+parasails.registerComponent('list-post', {
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
   //  ╩  ╩╚═╚═╝╩  ╚═╝
@@ -23,7 +23,6 @@ parasails.registerComponent('post', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: function (){
     return {
-      //…
       tweetId: 0,
     };
   },
