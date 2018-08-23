@@ -24,6 +24,7 @@ parasails.registerComponent('post', {
   data: function (){
     return {
       //…
+      tweetId: 0,
     };
   },
 
@@ -34,7 +35,7 @@ parasails.registerComponent('post', {
   <div class="post card">
     <div class="card-body postCard">
       <h3 class="card-title text-info">{{ post.title }}</h3>
-      <p class="card-text text-info" v-html="post.body"></p>
+      <div class="tweet" :tweetId="tweetId" style="pointer-events: none;"></div>
       <a :href="post.url" target="_blank" class="twitter btn btn-outline-info"><i class="fa fa-twitter"></i></a>
       <vote class="vote" v-bind:post="post" v-bind:user="user"></vote>
       <small class="fromNow text-muted">{{ post.fromNow }}</small>
@@ -58,6 +59,7 @@ parasails.registerComponent('post', {
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function() {
     //…
+    this.tweetId = this.post.tweetId;
     this.id = 'comment' + this.post.id;
   },
   mounted: async function(){
