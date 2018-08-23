@@ -42,25 +42,23 @@ parasails.registerComponent('list-comment', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <div class="col-md-6 col-md-offset-2 col-sm-12">
-    <div class="comment-wrapper">
-      <div class="panel panel-info">
-        <div class="panel-body">
-          <div class="clearfix"></div>
-          <hr>
-          <ul class="media-list">
-            <li class="media" v-for="comment in comments">
-              <img :src="'https://api.adorable.io/avatars/130/' + comment.creator.id" alt="" class="img-circle pull=left">
-              <div class="media-body">
-                <span class="text-muted pull-right">
-                  <small class="fromNow text-muted">{{ comment.fromNow }}</small>
-                </span>
-                <strong class="text-success">{{ comment.creator.fullName }}</strong>
-                <p>{{ comment.content }}</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+  <div class="comment-wrapper">
+    <div class="panel panel-info">
+      <div class="panel-body">
+        <div class="clearfix"></div>
+        <hr>
+        <ul class="media-list">
+          <li class="media" v-for="comment in comments">
+            <img :src="'https://api.adorable.io/avatars/130/' + comment.creator.id" alt="" class="img-circle pull=left">
+            <div class="media-body">
+              <span class="text-muted pull-right">
+                <small class="fromNow text-muted">{{ comment.fromNow }}</small>
+              </span>
+              <strong class="text-success">{{ comment.creator.fullName }}</strong>
+              <p>{{ comment.content }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -87,6 +85,9 @@ parasails.registerComponent('list-comment', {
   mounted: async function(){
     $(this.$el).css({
       'margin': '10px',
+    });
+    $('.media-list').css({
+      'padding-left': '0px',
     });
   },
   beforeDestroy: function() {
