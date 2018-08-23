@@ -1,3 +1,4 @@
+var moment = require('moment');
 module.exports = {
 
 
@@ -29,7 +30,7 @@ module.exports = {
       throw {redirect:'/welcome'};
     }
     //Get last 5 posts
-    let posts = await Post.find({limit:5});
+    let posts = await Post.find({limit:5}).populate('votes');
 
     return exits.success({posts: posts});
 
