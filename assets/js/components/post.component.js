@@ -62,18 +62,22 @@ parasails.registerComponent('post', {
     this.id = 'comment' + this.post.id;
   },
   mounted: async function(){
+    console.log(this);
     //Display tweets
     var tweets = this.$el.getElementsByClassName('tweet');
     [].forEach.call(tweets, (tweet) => {
       var id = tweet.getAttribute('tweetID');
-      twttr.widgets.createTweet( // eslint-disable-line no-undef
-        id, tweet,
-        {
+      if(id) {
+        twttr.widgets.createTweet(id, tweet, { // eslint-disable-line no-undef
           conversation: 'none',
           cards: 'hidden',
           linkColor: '#cc0000',
           theme: 'light',
         });
+      } else {
+        var text = document.createTextNode("Invalid Tweet URL");
+        tweet.appendChild(text);
+      }
     });
   },
   beforeDestroy: function() {
