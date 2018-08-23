@@ -1,3 +1,5 @@
+var url = require('url');
+var moment = require('moment');
 module.exports = {
 
 
@@ -29,7 +31,16 @@ module.exports = {
       throw {redirect:'/welcome'};
     }
     //Get last 5 posts
-    let posts = await Post.find({limit:5}).populate('votes');
+    let posts = await Post.find({limit:5}).populateAll();
+    _.each(posts, (post)=> {
+      //Use from Now text from moment
+      post.fromNow = moment(post.createdAt).fromNow();
+
+      //Get the twitter statusId from the url
+      var postUrl = new url.parse(post.url);
+      var parts = postUrl.pathname.split('/').pop();
+      post.tweetId = parts;
+    });
 
     return exits.success({posts: posts});
 

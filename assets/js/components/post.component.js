@@ -63,7 +63,19 @@ parasails.registerComponent('post', {
     this.id = 'comment' + this.post.id;
   },
   mounted: async function(){
-    //…
+    //Display tweets
+    var tweets = this.$el.getElementsByClassName('tweet');
+    [].forEach.call(tweets, function (tweet) {
+      var id = tweet.getAttribute("tweetID");
+      twttr.widgets.createTweet(
+        id, tweet,
+        {
+          conversation: 'none',
+          cards: 'hidden',
+          linkColor: '#cc0000',
+          theme: 'light',
+        });
+    });
   },
   beforeDestroy: function() {
     //…
