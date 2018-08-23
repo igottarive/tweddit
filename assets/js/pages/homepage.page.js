@@ -32,6 +32,7 @@ parasails.registerPage('homepage', {
     this.formData.title = 'sdf';
     this.formData.url = 'http://yahoo.com';
     this.formData.body = 'Some cool text';
+    this.formData.user = '13';
   },
 
   mounted: async function(){
