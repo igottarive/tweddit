@@ -60,6 +60,8 @@ module.exports.routes = {
   'GET /api/v1/list-comment':                         { action: 'comment/list-comment' },
   'POST /api/v1/add-comment':                         { action: 'comment/add-comment' },
 
+  'GET /api/v1/get-friends':                         { action: 'friends/get-friends' },
+
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝

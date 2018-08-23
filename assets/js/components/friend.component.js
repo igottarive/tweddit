@@ -14,7 +14,7 @@ parasails.registerComponent('friend', {
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
   //  ╩  ╩╚═╚═╝╩  ╚═╝
   props: [
-    'users',
+    'user',
     'type' //friend or enemy
   ],
 
@@ -23,6 +23,7 @@ parasails.registerComponent('friend', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: function (){
     return {
+      users: [{id: 0, ratings: 0, fullName: 'None'}],
     };
   },
 
@@ -30,8 +31,8 @@ parasails.registerComponent('friend', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <ul class="list-group" v-cloak v-if="">
-    <li class="list-group-item active">  {{ type | capitalize }}</li>
+  <ul class="list-group" v-cloak>
+    <li class="list-group-item list-group-item-secondary">  {{ type | capitalize }}</li>
     <li class="list-group-item" v-for="user in users" v-bind:key="user.id">{{user.fullName}}</li>
   </ul>
   `,
@@ -40,17 +41,26 @@ parasails.registerComponent('friend', {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function() {
-    //…
+    //Get data from server
+    $.ajax({
+      url: '/api/v1/get-friends',
+      data: {
+        user: this.user.id,
+      },
+      error: function() {
+        alert( 'this is an invalid user' );
+      },
+      success: resp => {
+        if(resp[this.type].length) {
+          this.users = resp[this.type];
+        }
+      },
+    });
   },
   mounted: async function(){
-    if(!this.users.length) {
-      $(this.$el).css({
-        'display': 'none',
-      });
-    }
-
     $(this.$el).css({
       'width': '220px',
+      'padding': '10px',
     });
   },
   beforeDestroy: function() {
