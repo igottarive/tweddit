@@ -27,6 +27,14 @@ parasails.registerComponent('list-post', {
     };
   },
 
+  computed: {
+    // a computed getter
+    updatedComments: function () {
+      // `this` points to the vm instance
+      return 'wefwefwef';
+    }
+  },
+
   //  ╦ ╦╔╦╗╔╦╗╦
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
@@ -45,7 +53,7 @@ parasails.registerComponent('list-post', {
       </button>
       <div class="collapse" :id="id">
         <div class="card card-body card-comment">
-          <add-comment v-bind:post="post" v-bind:user="user"></add-comment>
+          <add-comment v-bind:post="post" v-bind:user="user" @addComment="addComment"></add-comment>
           <list-comment v-bind:post="post"></list-comment>
         </div>
       </div>
@@ -61,7 +69,6 @@ parasails.registerComponent('list-post', {
     this.id = 'comment' + this.post.id;
   },
   mounted: async function(){
-    console.log(this);
     //Display tweets
     var tweets = this.$el.getElementsByClassName('tweet');
     [].forEach.call(tweets, (tweet) => {
@@ -92,5 +99,9 @@ parasails.registerComponent('list-post', {
       this.$emit('click');
     },
 
+    //Called when a comment has successfully been added
+    addComment: function(comment) {
+      this.post.comments.push(comment);
+    }
   }
 });
