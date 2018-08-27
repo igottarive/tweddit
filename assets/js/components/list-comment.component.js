@@ -85,7 +85,7 @@ parasails.registerComponent('list-comment', {
     this.$nextTick(function () {
       $(this.$el).fadeOut();
       $(this.$el).fadeIn(1000);
-    })
+    });
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
