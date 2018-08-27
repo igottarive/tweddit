@@ -81,6 +81,12 @@ parasails.registerComponent('list-comment', {
   beforeDestroy: function() {
     //…
   },
+  updated: function () {
+    this.$nextTick(function () {
+      $(this.$el).fadeOut();
+      $(this.$el).fadeIn(1000);
+    })
+  },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
