@@ -34,7 +34,7 @@ parasails.registerComponent('list-comment', {
 
       // Server error state for the form
       cloudError: '',
-      comments: [],
+      comments: this.post.comments,
     };
   },
 
@@ -68,19 +68,7 @@ parasails.registerComponent('list-comment', {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function() {
-    //Get data from server
-    $.ajax({
-      url: '/api/v1/list-comment',
-      data: {
-        post: this.post.id,
-      },
-      error: function() {
-        alert( 'this is an invalid post' );
-      },
-      success: resp => {
-        this.comments = resp;
-      },
-    });
+
   },
   mounted: async function(){
     $(this.$el).css({
