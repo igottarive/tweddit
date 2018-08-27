@@ -43,7 +43,7 @@ parasails.registerComponent('add-comment', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <ajax-form action="addComment" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm">
+  <ajax-form action="addComment" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm" @submitted="submittedForm">
     <div class="form-group">
       <label for="comment">Comments</label>
       <textarea class="form-control" id="comment" name="comment" v-model.trim="comment" placeholder="write a comment..." rows="3" v-if="user"></textarea>
@@ -82,5 +82,8 @@ parasails.registerComponent('add-comment', {
       return this.formData;
     },
 
+    submittedForm: async function(res) {
+      this.$emit('addComment', res);
+    },
   }
 });
